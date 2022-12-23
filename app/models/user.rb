@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :customers
+  has_many :customers, dependent: :destroy
   has_many :managers
 
   validates :email, presence: true, format: { with: /[A-Za-z]+@[A-Za-z]+.[A-Za-z]+/, message: 'Incorrect email'}, on: [:create]

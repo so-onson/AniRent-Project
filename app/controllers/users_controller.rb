@@ -50,7 +50,23 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         if current_user.admin?
-        format.html { redirect_to users_url(@user), notice: "#{t('flash.success.update')}" }
+          # unless params[:role].nil?
+            if @user.role == 'custom' && Customer.find_by(user_id: @user.id ).nil?
+              unless Manager.find_by(user_id: @user.id ).nil?
+                Manager.find_by(user_id: @user.id ).destroy
+              end
+              @custom = Customer.create(user_id: @user.id)
+
+            elsif @user.role == 'manager' && Manager.find_by(user_id: @user.id ).nil?
+              unless Customer.find_by(user_id: @user.id ).nil?
+                Customer.find_by(user_id: @user.id ).destroy
+              end
+              @manager = Manager.create(user_id: @user.id)
+            end
+          # end
+          
+          format.html { redirect_to users_url(@user), notice: "#{t('flash.success.update')}" }
+          
         else
           format.html { redirect_to pages_profile_path, notice: "#{t('flash.success.update')}" }
         end
@@ -64,8 +80,8 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    Customer.find_by(user_id: current_user.id).destroy if current_user.custom?
-    Manager.find_by(user_id: current_user.id).destroy if current_user.manager?
+    Customer.find_by(user_id:  params[:id]).destroy if (@user.role == 'customer')
+    Manager.find_by(user_id:  params[:id]).destroy if (@user.role == 'manager')
     @user.destroy
 
     respond_to do |format|
