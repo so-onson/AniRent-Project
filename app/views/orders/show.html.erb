@@ -1,0 +1,33 @@
+<h1><%= t '.title' %><%= @order.id %></h1>
+
+<%= render @order %>
+
+<div>
+  <p>
+  <strong><%= t '.time' %>: </strong>
+        <%if Time.now.day.between?(@order.created_at.day, @order.end_date.day) %>
+           <%= @time_left %><%= t '.day' %> <%= @hour_left %> <%= t '.hour'  %>
+          <p>
+            <%= link_to "#{t('.extend')}", edit_order_path(@order), class: 'btn btn-primary' %> 
+          </p>
+        <% else %> 
+          <%= t '.out' %>
+        <% end %>
+  </p>
+<div>
+
+<div>
+  <% if current_user.manager? %>
+  <p>
+    <%= button_to "#{t('.rec')}", receive_order_path(@order), method: :patch, class: 'btn btn-outline-primary' %> 
+  </p>
+  <% end %>
+  <% if current_user.admin? %>
+  <p>
+    <%= button_to "#{t('but_delete')}", delete_order_path(@order), method: :delete, class: 'btn btn-outline-primary' %>
+  </p>
+  <% end %>
+<p>
+  <%= link_to "#{t('but_back')}", orders_index_path, class: 'btn btn-outline-primary' %>
+ </p> 
+</div>

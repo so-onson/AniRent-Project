@@ -1,0 +1,12 @@
+<div id="<%= dom_id order %>">
+    <p>
+    <strong><%= t '.animal' %>: </strong>
+    <%= Animal.find_by(id: order.animal_id).name %>
+  </p>
+
+
+  <p>
+    <strong><%= t '.date' %>:</strong>
+    <%= order.end_date %>
+  </p>
+</div>

@@ -1,0 +1,19 @@
+<h1><%= t '.orders' %></h1>
+<p style="color: green"><%= notice %></p>
+
+
+
+<div id="users">
+<% unless @orders.nil?%>
+  <% @orders.each do |order| %>
+    <%= render order %>
+    <p>
+      <%= link_to t('but_order'), order , class: 'btn btn-outline-primary'%>
+    </p>
+  <% end %>
+<% end %>
+</div>
+
+<% if current_user.custom? || current_user.admin? %>
+<%= link_to t('but_new_order'), animals_path, class: 'btn btn-primary' %>
+<% end %>

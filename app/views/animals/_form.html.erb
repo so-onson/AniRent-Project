@@ -1,0 +1,45 @@
+<%= form_with(model: animal) do |form| %>
+  <% if animal.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(animal.errors.count, "#{t('error')}") %>:</h2>
+
+      <ul>
+        <% animal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label  "#{t 'animals.name'}", class: "form-label mb-2 mt-3" %>
+    <%= form.text_field :name, class: "form-control form-control-lg" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "#{t 'animals.breed'}", class: "form-label mb-2 mt-3" %>
+    <%= form.text_field :breed, class: "form-control form-control-lg" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "#{t 'animals.description'}", class: "form-label mb-2 mt-3" %>
+    <%= form.text_area :description, class: "form-control form-control-lg" %>
+  </div>
+<div class="input-group">
+     <p>
+     <% unless animal.image.nil? %>
+   <% if animal.image.attached? %>
+   <% image_tag animal.image, style: "width: 200px"%>
+   <% end %>
+   <% end %>
+   <%= form.label "#{t 'animals.image'}" %>
+   <%= form.file_field :image, class: "form-control"%>
+  </p>
+</div>
+
+
+
+  <div>
+    <%= form.submit "#{t('but_save')}" ,class: "btn btn-light" %>
+  </div>
+<% end %>

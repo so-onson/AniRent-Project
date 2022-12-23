@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
- 
-
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     get 'session/login'
     post 'session/signup'
     get 'session/logout'
+
 
     get 'orders/index'
     get 'orders/show/:id', to: 'orders#show', as: 'order'  #get '/patients/:id', to: 'patients#show', as: 'patient'

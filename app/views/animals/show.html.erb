@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <%= render @animal %>
+    </div>
+    <div class="col">
+      <p>
+        <strong><%= t 'animals.description' %>:</strong>
+        <%= @animal.description %>
+      </p>
+      <p class="flex-end">
+        <% unless @animal.in_order == true %>
+          <%= link_to "#{t('.in')}", orders_new_path(animal_id: @animal.id), class: 'btn btn-primary'%>
+        <% else %>
+          <button type="button" class="btn btn-primary" disabled><%= t '.reserved' %></button>
+        <% end %>
+      </p>
+  </div>
+</div>
+
+<div>
+<div class="container overflow-hidden">
+  <div class="row gy-5">
+    <div class="col-3">
+      <p>
+        <% if current_user.present? %>
+          <% if current_user.manager? %>
+            <%= link_to "#{t('but_edit')}", edit_animal_path(@animal) %> |
+            <%= link_to "#{t('but_delete')}", @animal, method: :delete %>
+          <% end %>
+        <% end %>
+      </p>
+      <p>
+        <%= link_to "#{t('animals.new.back')}", animals_path, class: 'btn btn-outline-primary' %>
+      </p>
+    </div>
+  </div>
+</div>

@@ -96,6 +96,8 @@ en:
       create:  Was successfully created.
       update:  Was successfully updated.
       destroy:  Was successfully destroyed.
+    error:
+      create: Not created.
     enter: 'You have successfuly logged in.'
     exit: 'You have successfuly logged out.'
     pas_error: 'Incorrect password or email'

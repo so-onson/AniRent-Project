@@ -1,0 +1,30 @@
+<div id="<%= dom_id animal %>">
+  <div class="container">
+    <div class="row">
+      <div class="col-7">
+        <p>
+          <% unless animal.image.nil? %>
+            <% if animal.image.attached? %>
+              <%= image_tag animal.image, class: "rounded img-fluid", width:"400"%>
+            <% else %>
+              <%= image_tag "no_avatar.jpeg", class: "rounded img-fluid", width:"400"  %>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+      <div class="col text-center">
+        <p>
+          <strong><%= t 'animals.name' %>: </strong>
+          <%= animal.name %>
+        </p>
+
+        <p>
+          <strong><%= t 'animals.breed' %>: </strong>
+          <%= animal.breed %>
+        </p>
+
+
+      </div>
+    </div>
+  </div>
+</div>

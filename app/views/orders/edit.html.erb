@@ -1,0 +1,23 @@
+<h1><%= t '.title' %></h1>
+
+<div>
+
+<%= form_with url: update_order_path(end_date: params[:end_date]), method: :patch  do |form|  %>
+
+  <%= form.select :end_date, @arr, class: "form-select" %>
+  <div>
+    <%= form.submit "#{t('but_save')}", class: 'btn btn-outline-primary' %>
+  </div>
+
+<% end %>
+
+
+</div>
+
+
+<br>
+<p>
+<div>
+  <%= link_to "#{t('but_back')}", @order, class: 'btn btn-outline-primary' %>
+</div>
+</p>

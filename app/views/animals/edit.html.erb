@@ -1,0 +1,10 @@
+<h1><%= t '.title' %></h1>
+
+<%= render "form", animal: @animal %>
+
+<br>
+
+<div>
+  <%= link_to "#{t('but_back')}", @animal %> |
+  <%= link_to "#{t('animals.new.back')}", animals_path %>
+</div>

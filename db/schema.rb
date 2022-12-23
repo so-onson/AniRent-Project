@@ -10,14 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_23_054654) do
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "email"
-    t.integer "role"
-    t.string "password_digest"
+ActiveRecord::Schema[7.0].define(version: 2022_12_23_065004) do
+  create_table "animals", force: :cascade do |t|
+    t.string "name"
+    t.string "breed"
+    t.text "description"
+    t.boolean "in_order", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "customer_id"
+    t.integer "animal_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", default: "", null: false
+    t.string "email", default: "", null: false
+    t.integer "role", default: 0
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  add_foreign_key "customers", "users"
+  add_foreign_key "managers", "users"
+  add_foreign_key "orders", "animals"
+  add_foreign_key "orders", "customers"
 end

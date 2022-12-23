@@ -1,0 +1,89 @@
+ 
+ <p style="color: green"><%= notice %></p>
+
+<h1 class="center"><%= t '.animal' %></h1>
+ 
+<div class="flex justify-end mb-1">
+
+
+        <%= form_with url: "#animals", method: :get do |form| %>
+        <%= form.text_field :search_name, placeholder: "#{t('.search_by')}", class: "border rounded p-2"%>
+        <%= form.submit "#{t('.search')}", class: "text-white p-2  btn-outline-secondary"%>
+        <% end %>
+        
+
+<br>
+
+
+        <form action="#animals" method="GET">
+          <label for="filter"><%= t '.filter_options' %></label>
+          <select id="filter" name="filter" onchange="this.form.submit()" class="form-select">
+            <option value=""><%= t '.pic_options' %></option>
+            <option value="breed" <%= "selected" if session[:filter] == "breed" %>><%= t '.filter' %></option>
+          </select>
+
+
+          <% if session[:filter] == "breed" %>
+            <select name="filter_option" onchange="this.form.submit()" class="form-select">
+              <option value=""><%= t '.breed' %></option>
+                <% @breeds.each do |breed| %>
+                  <option value="<%= breed.breed %>"><%= breed.breed %></option>
+                <% end %>
+            </select>
+          <% end %>
+
+        </form>
+
+
+
+</div>
+
+<p>
+<%= link_to t('.clear'), clear_path, class: "btn btn-sm btn-outline-secondary" %>
+</p>
+
+
+
+<div id="animals">
+  <% @animals.each do |animal| %>
+   
+    <div class="card text-center mb-5" style="width: 20rem;">
+        <p class="card-img-top">
+          <% unless animal.image.nil? %>
+            <% if animal.image.attached? %>
+              <%= image_tag animal.image, class: "rounded img-fluid", width:"400"%>
+            <% else %>
+              <%= image_tag "no_avatar.jpeg", class: "rounded img-fluid", width:"400"  %>
+            <% end %>
+          <% end %>
+        </p>
+        <div class="card-body">
+          <p class="card-text">
+              <p>
+                <strong><%= t 'animals.name' %>: </strong>
+                <%= animal.name %>
+              </p>
+              <p>
+                <strong><%= t 'animals.breed' %>: </strong>
+                <%= animal.breed %>
+              </p>
+          </p>
+          <div class="container">
+            <div class="row">
+              <p>
+                <%= link_to t('but_order'), animal, class: 'btn btn-outline-primary'%>
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <% end %>
+</div>
+
+
+<% if current_user.present? %>
+<% if current_user.manager? %>
+<%= link_to t('but_new_ani'), new_animal_path, class: 'btn btn-primary' %>
+<% end %>
+<% end %>

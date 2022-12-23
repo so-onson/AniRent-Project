@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         end
         
       else
-        format.html { redirect_to new_user_path, alert: "not created." }
+        format.html { redirect_to new_user_path, alert: "#{t('flash.error.create')}" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

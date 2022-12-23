@@ -60,7 +60,7 @@
 
   <div class="modal-footer">
     <%= form.submit  "#{t('but_save')}", class: "btn btn-primary", data: {action: "click->bs-modal#submitEnd" } %>
-    <%= link_to "#{t('session.entering')}", session_signup_path, data: {controller: "user-modal"}, method: :get, class: 'btn btn-primary'%>
+    <%= link_to "#{t('session.entering')}", session_login_path, data: {controller: "user-modal"}, method: :get, class: 'btn btn-primary'%>
   </div>
 
 <% end %>

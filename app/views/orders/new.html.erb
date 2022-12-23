@@ -1,0 +1,22 @@
+<h1><%= t '.title' %></h1>
+
+<div><strong><%= t 'orders.order.animal' %>: </strong>
+<%= Animal.find_by(id: @animal_id).name %>
+</div>
+<p>
+<%= form_with url: orders_create_path(animal_id: params[:animal_id], end_date: params[:end_date]), method: :get  do |form|  %>
+
+  <%= form.hidden_field :animal_id, value: @animal_id %>
+  <%= form.select :end_date, @arr %>
+  <div>
+    <%= form.submit "#{t('but_save')}", class: 'btn btn-outline-primary' %>
+  </div>
+<% end %>
+</p>
+
+<br>
+<p>
+<div>
+  <%= link_to "#{t('but_back')}", animals_path, class: 'btn btn-outline-primary' %>
+</div>
+</p>
