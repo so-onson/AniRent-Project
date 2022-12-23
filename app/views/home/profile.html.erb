@@ -1,0 +1,22 @@
+<h1><%= t('.title') %></h1>
+
+  <p>
+    <strong><%= t '.name' %>: </strong>
+    <%= current_user.first_name %>
+  </p>
+
+  <p>
+    <strong><%= t '.email' %>: </strong>
+    <%= current_user.email %>
+  </p>
+
+<p>
+<%= button_to t('but_edit'), "/users/#{current_user.id}/edit", class: "btn btn-outline-primary", method: :get %>
+</p>
+<%= button_to t('but_orders'), "/orders/index",class: "btn btn-primary", method: :get %>
+
+<p>
+<% if current_user.admin? %>
+  <%= button_to t('.but_users'), "/users",class: "btn btn-primary", method: :get %>
+<% end %>
+</p>

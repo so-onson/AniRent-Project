@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div>
+  <%= link_to "#{t('but_edit')}", edit_user_path(@user) %> |
+  <%= link_to "#{t('but_back')}", users_path %>
+
+  <%= button_to "#{t('but_delete')}", @user, method: :delete, class: 'btn btn-primary' %>
+</div>
+

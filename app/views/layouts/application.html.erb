@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AniRent</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+
+
+
+
+
+
+    <div class="navbar indigo ps-1", style="background-color: #b5e7fe">
+          
+        <%= link_to 'AniRent', root_path %>
+
+  <%# <button type="button" class="btn btn-primary">Left</button>
+  <button type="button" class="btn btn-primary">Middle</button>
+  <button type="button" class="btn btn-primary">Right</button> %>
+         
+<div class="btn-group" role="group" aria-label="Basic example">
+        <% I18n.available_locales.each do |locale| %>
+          <% if locale != I18n.locale %>
+            <%= link_to locale, root_path(locale: locale), class: 'btn btn-outline-light' %>
+            
+          <% end %>
+         <% end %>
+</div>
+        
+
+           
+          
+
+        
+
+
+
+        
+        <% if current_user.present? %>
+        <%= link_to "#{current_user.first_name}", home_profile_path, class: ' ms-1' %>
+
+
+        <%= button_to "#{t('orders.index.orders')}", orders_index_path, class: 'btn btn-primary ms-1', method: :get%> 
+
+        <%= button_to "#{t('but_exit')}", session_logout_path,class: 'btn btn-outline-primary ms-1', method: :get%>
+        <% else %>
+        <%= link_to "#{t('users.reg')}", new_user_path, data: {controller: "user-modal"}, class: 'btn btn-primary' %>
+        <%= link_to "#{t('session.enter')}", session_login_path, data: {controller: "user-modal"}, class: ' btn btn-outline-primary'%>
+        <% end %>
+    </div>
+
+    <%# <ul class="nav col-12 col-lg-auto mb-2 mb-md-0"> %>
+
+    <%# </ul>style="background-color: #eee;" %>
+
+
+
+    <div class="container mt-5">
+    <div class="row">
+    <%= yield %>
+    <%= turbo_frame_tag 'remote_modal'%>
+    </div>
+    </div>
+
+    <div class="container w-0 p-0 fixed-bottom"  >
+          <div class="position-absolute bottom-0 end-0">
+            <% if flash[:notice].present? %>
+        <div class="alert alert-success " role="alert">
+            <%= flash[:notice] %>
+            </div>
+            <% elsif flash[:alert].present? %>
+            <div class="alert alert-danger" role="alert">
+              <%= flash[:alert] %>
+            </div>
+            <% end %>
+    </div>
+
+
+
+  </body>
+</html>

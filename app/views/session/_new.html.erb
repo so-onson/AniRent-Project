@@ -1,0 +1,49 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-controller="bs-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= t 'session.enter'%></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <%= form_with url: session_signup_path, method: :post  do |form| %>
+        <div class="modal-body">
+              <% flash.each do |type, msg|%>
+                <div class="container w-5 p-3 "  >
+                  <% if flash[:notice].present? %>
+                    <div class="alert alert-success " role="alert">
+                        <%= flash[:notice] %>
+                    </div>
+                  <% elsif flash[:alert].present? %>
+                    <div class="alert alert-danger" role="alert">
+                      <%= flash[:alert] %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+
+                  
+          
+
+          <div>
+            <%= form.label "#{t('users.email')}", class: "form-label mb-2 mt-3" %>
+            <%= form.text_field :email, class: "form-control form-control-lg" %>
+          </div>
+
+          <div>
+            <%= form.label "#{t('users.password')}", class: "form-label mb-2 mt-3" %>
+            <%= form.password_field :password, class: "form-control form-control-lg" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+            <%= form.submit "#{t('session.enter')}", class: 'btn btn-primary' %>
+      <% end %>
+          <%= link_to "#{t('users.reg')}", new_user_path, data: {controller: "user-modal"}, method: :get, class: 'btn btn-primary'%>
+        </div>
+
+    </div>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,122 @@
+ru:
+  en: "Английский"
+  ru: "Русский"
+  activerecord:
+    attributes:
+      animal:
+        name: 'Имя'
+        breed: 'Порода'
+  home:
+    index:
+      home: "Гавная"
+      title: 'Добро пожаловать в AniRent'
+      dogs: 'Собаки'
+      cats: 'Кошки'
+      hum: Хомяки
+      animals: 'Посмотреть всех питомцев'
+    profile:
+      title: 'Твой профиль'
+      name: 'Имя'
+      email: 'Email'
+      but_users: "Пользователи"
+
+  orders:
+    index: 
+      orders: "Заказы на передержку"
+    order:
+      animal: "Имя питомца"
+      date: "Вернуть до"
+    show:
+      title: "Заказ №"
+      out: "Время истекло"
+      time: "Осталось времени до возврата"
+      day: 'дней'
+      hour: 'часов'
+      rec: 'Получен'
+      extend: 'Продлить'
+    edit:
+      title: 'Продление'
+    new: 
+      title: 'Оформление'
+
+  animals:
+    index: 
+      animal: "Питомцы"
+      filter_options: "Фильтр"
+      pic_options: ""
+      filter: "Фильтр по породе"
+      breed: "Выбери породу"
+      clear: "Очистить фильтр"
+      search: "Искать"
+      search_by: "Искать по имени"
+    new:
+      title: "Новый питомец"
+      back: "Назад к питомцам"
+    show:
+      reserved: "Уже на передержке"
+      in: "Взять"
+    edit:
+      title: "Редактирование данных питомца"
+    name: "Имя"
+    breed: "Порода"
+    description: "Описание"
+    image: "Фото"
+
+  users:
+    index: 
+      title: 'Пользователи'
+      but_new_user: 'Добавить пользователя'
+      but_show: 'Подробнее'
+    edit:
+      title: "Редактирование данных пользователя"
+      to_u: "к пользователю"
+      to_us: "к пользователям"
+    
+
+    name: 'Имя'
+    email: 'Email'
+    role: 'Роль'
+    actions: 'Действия'
+    password: 'Пароль'
+    password_con: 'Подтверждение пароля'
+
+    reg: 'Регистрация'
+
+  session:
+    enter: 'Войти'
+    entering: 'Уже есть аккаунт'
+
+  flash:
+    owner: Ты не владелец.
+    permission: Недостаточно прав.
+    reserved: Питомец уже на передержке.
+    success:
+      create: Успешно сохранен.
+      update: Успешно отредактирован.
+      destroy: Успешно удален.
+    enter: 'Вы успешно зашли.'
+    exit: 'Вы успешно вышли.'
+    pas_error: 'Неправильный пароль или email.'
+    login_error: Чтобы продолжить, необходимо войти в систему.
+
+    
+    
+
+    
+    name: "Имя"
+    breed: "Порода"
+    description: "Описание"
+    image: "Фото"
+
+
+  error: "ошибки"
+
+  but_exit: "Выйти"
+  but_save: "Сохранить"
+  but_back: "Назад"
+  but_edit: 'Редактировать'
+  but_delete: 'Удалить'
+  but_orders: 'Заказы'
+  but_order: 'Подробнее'
+  but_new_order: 'Новый заказ'
+  but_new_ani: 'Добавить нового питомца'

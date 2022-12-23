@@ -1,0 +1,115 @@
+en:
+  en: English
+  ru: Russian
+  # activerecord:
+  #   attributes:
+  #     animal:
+  #       name: 'Name'
+  #       breed: 'Breed'
+
+
+  home:
+    index:
+      home: "Home"
+      title: 'Welcome to AniRent'
+      dogs: "Dogs"
+      cats: "Cats"
+      hum: Humsters
+      animals: "Animals"
+    profile:
+      title: 'Your profile'
+      name: 'Name'
+      email: 'Email'
+      but_users: 'All users'
+
+  orders:
+    index: 
+      orders: "Your orders"
+    order:
+      animal: "Animal's name"
+      date: "Return before"
+    show: 
+      title: "Order №"
+      out: "Time out"
+      time: "Time left until return"
+      day: 'days'
+      hour: 'hours'
+      rec: 'Receive'
+      extend: 'Extend'
+    edit:
+      title: 'Edit order'
+    new:
+      title: 'Order registration'
+
+  animals:
+    index: 
+      animal: "Animals"
+      filter_options: "Filter options"
+      pic_options: ""
+      filter: "Filter by breed"
+      breed: "Pick a breed"
+      clear: "Clear filter"
+      search: "Search"
+      search_by: "Search by name"
+    new:
+      title: "New animal"
+      back: "Back to animals"
+    show:
+      reserved: "Already in order"
+      in: "Take"
+    edit:
+      title: "Edit animal's data"
+    
+    name: "Name"
+    breed: "Breed"
+    description: "Description"
+    image: "Image"
+
+  users:
+    index: 
+      title: 'Users'
+      but_new_user: 'Add new user'
+      but_show: 'Show'
+    edit:
+      title: "Editing user's data"
+      to_u: "to user"
+      to_us: "to users"
+    
+    name: 'First name'
+    email: 'Email'
+    role: 'Role'
+    actions: 'Actions'
+    password: 'Password'
+    password_con: 'Password confirmation'
+
+    reg: 'Sign up'
+
+  session:
+    enter: 'Log in'
+    entering: 'Already have an account'
+
+  flash:
+    owner: You're not an owner.
+    permission: You don't have enough permissions.
+    reserved: This animal was reserved, sorry.
+    success:
+      create:  Was successfully created.
+      update:  Was successfully updated.
+      destroy:  Was successfully destroyed.
+    enter: 'You have successfuly logged in.'
+    exit: 'You have successfuly logged out.'
+    pas_error: 'Incorrect password or email'
+    login_error: To continue you need to log in
+
+  
+  error: "error"
+
+  but_exit: "Exit"
+  but_save: "Save"
+  but_back: "Back"
+  but_edit: 'Edit'
+  but_delete: 'Delete'
+  but_orders: 'Orders'
+  but_order: 'Show more details'
+  but_new_order: 'New order'
+  but_new_ani: 'New animal'

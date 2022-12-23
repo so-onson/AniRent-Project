@@ -1,0 +1,66 @@
+<%= form_with(model: user) do |form| %>
+
+ <div class="modal-body">
+          <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "#{t('error')}") %>: </h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+                <% flash.each do |type, msg|%>
+                <div class="container w-5 p-3 "  >
+                  <% if flash[:notice].present? %>
+                    <div class="alert alert-success " role="alert">
+                        <%= flash[:notice] %>
+                    </div>
+                  <% elsif flash[:alert].present? %>
+                    <div class="alert alert-danger" role="alert">
+                      <%= flash[:alert] %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+
+
+
+  <div class="form-group">
+    <%= form.label "#{t('users.name')}", class: "form-label mb-2 mt-3" %>
+    <%= form.text_field :first_name, class: "form-control form-control-lg"%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "#{t('users.email')}", class: "form-label mb-2 mt-3" %>
+    <%= form.text_field :email,  class: "form-control form-control-lg" %>
+  </div>
+<% if current_user.present? %>
+<% if current_user.admin? %>
+  <div class="form-group">
+    <%= form.label "#{t('users.role')}", class: "form-label mb-2 mt-3" %>
+    <%= form.text_field :role,  class: "form-control form-control-lg" %>
+  </div>
+<% end %>
+<% end %>
+
+  <div class="form-group">
+    <%= form.label "#{t('users.password')}", class: "form-label mb-2 mt-3" %>
+    <%= form.password_field :password,  class: "form-control form-control-lg" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "#{t('users.password_con')}", class: "form-label mb-2 mt-3" %>
+    <%= form.password_field :password_confirmation,  class: "form-control form-control-lg" %>
+  </div>
+ </div>
+
+  <div class="modal-footer">
+    <%= form.submit  "#{t('but_save')}", class: "btn btn-primary", data: {action: "click->bs-modal#submitEnd" } %>
+    <%= link_to "#{t('session.entering')}", session_signup_path, data: {controller: "user-modal"}, method: :get, class: 'btn btn-primary'%>
+  </div>
+
+<% end %>

@@ -1,0 +1,12 @@
+<h1><%= t '.title' %></h1>
+
+<%= render "form", user: @user %>
+
+
+<br>
+
+
+<div>
+  <%= link_to "#{t('but_back')} #{t('.to_u')}", @user %> |
+  <%= link_to "#{t('but_back')} #{t('.to_us')}", users_path %>
+</div>

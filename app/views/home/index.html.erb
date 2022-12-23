@@ -1,0 +1,23 @@
+<%# <% currently_at t('root.home') %> 
+
+<div class="col-lg-12">
+<h1><%= t('home.index.home')%></h1>
+<p><%= t '.title' %></p>
+<%= button_to "#{t('.animals')}", animals_path, class: 'btn btn-primary', method: :get%>
+</div>
+<p>
+<div class="col-lg-12 mt-5">
+<%# <div class="container ">
+  <div class="row "> %>
+    <div class="d-grid gap-5 col-12 ">
+      <%= link_to "#{t('.dogs')}", "#{animals_path}?filter=breed&filter_option=dog", class: 'btn btn-outline-warning px-5 me-md-2 btn-lg'%>
+    <%# </div> %>
+    <%# <div class="col-3"> %>
+      <%= link_to "#{t('.cats')}", "#{animals_path}?filter=breed&filter_option=cat", class: 'btn btn-outline-warning px-5 me-md-2 btn-lg'%>
+
+      <%= link_to "#{t('.hum')}", "#{animals_path}?filter=breed&filter_option=humster", class: 'btn btn-outline-warning px-5 btn-lg'%>
+    </div>
+  <%# </div>
+</div> %>
+</div>
+</p>
