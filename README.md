@@ -1,24 +1,18 @@
-# README
+# AniRent - Rails Project
+Project with Ruby on Rails, JavaScript, Bootstrap, Rspec and Capybara tests
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+* Has three roles: Customer, Manager, Admin
+* Customer can make orders and the app  will track how much time is left
+* Manager adds new animals and edit them, monitors orders
+* All the listed functions are available to the administrator
+* English and Russian languages
 
-Things you may want to cover:
+![Home](https://raw.githubusercontent.com/so-onson/AniRent-Project/main/app/assets/images/home.png)
+![Animals](https://raw.githubusercontent.com/so-onson/AniRent-Project/main/app/assets/images/animals.png)
+![Signup](https://raw.githubusercontent.com/so-onson/AniRent-Project/main/app/assets/images/signup.png)
 
-* Ruby version
 
-* System dependencies
+## Authors
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* **Samodurova Sofia**

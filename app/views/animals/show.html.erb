@@ -25,8 +25,8 @@
       <p>
         <% if current_user.present? %>
           <% if current_user.manager? %>
-            <%= link_to "#{t('but_edit')}", edit_animal_path(@animal) %> |
-            <%= link_to "#{t('but_delete')}", @animal, method: :delete,  id: 'Destr1' %>
+            <%= link_to "#{t('but_edit')}", edit_animal_path(@animal), class: 'btn btn-outline-primary'%> 
+            <%= button_to "#{t('but_delete')}", @animal, method: :delete, class: 'btn btn-outline-primary',  id: 'Destr1' %>
           <% end %>
         <% end %>
       </p>
