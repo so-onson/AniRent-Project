@@ -12,7 +12,7 @@
         <% unless @animal.in_order == true %>
           <%= link_to "#{t('.in')}", orders_new_path(animal_id: @animal.id), class: 'btn btn-primary'%>
         <% else %>
-          <button type="button" class="btn btn-primary" disabled><%= t '.reserved' %></button>
+          <button type="button" class="btn btn-primary"  disabled><%= t '.reserved' %></button>
         <% end %>
       </p>
   </div>
@@ -26,7 +26,7 @@
         <% if current_user.present? %>
           <% if current_user.manager? %>
             <%= link_to "#{t('but_edit')}", edit_animal_path(@animal) %> |
-            <%= link_to "#{t('but_delete')}", @animal, method: :delete %>
+            <%= link_to "#{t('but_delete')}", @animal, method: :delete,  id: 'Destr1' %>
           <% end %>
         <% end %>
       </p>

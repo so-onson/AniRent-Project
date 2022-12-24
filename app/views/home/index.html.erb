@@ -3,7 +3,7 @@
 <div class="col-lg-12">
 <h1><%= t('home.index.home')%></h1>
 <p><%= t '.title' %></p>
-<%= button_to "#{t('.animals')}", animals_path, class: 'btn btn-primary', method: :get%>
+<%= link_to "#{t('.animals')}", animals_path, id: 'Animals', class: 'btn btn-primary', method: :get%>
 </div>
 <p>
 <div class="col-lg-12 mt-5">

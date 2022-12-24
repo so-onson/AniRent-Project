@@ -6,16 +6,16 @@
 <div class="flex justify-end mb-1">
 
 
-        <%= form_with url: "#animals", method: :get do |form| %>
+        <%= form_with url: "/animals", method: :get do |form| %>
         <%= form.text_field :search_name, placeholder: "#{t('.search_by')}", class: "border rounded p-2"%>
-        <%= form.submit "#{t('.search')}", class: "text-white p-2  btn-outline-secondary"%>
+        <%= form.submit "#{t('.search')}", class: "text-white p-2  btn-outline-secondary", id: 'search'%>
         <% end %>
         
 
 <br>
 
 
-        <form action="#animals" method="GET">
+        <form action="/animals" method="GET">
           <label for="filter"><%= t '.filter_options' %></label>
           <select id="filter" name="filter" onchange="this.form.submit()" class="form-select">
             <option value=""><%= t '.pic_options' %></option>
@@ -84,6 +84,6 @@
 
 <% if current_user.present? %>
 <% if current_user.manager? %>
-<%= link_to t('but_new_ani'), new_animal_path, class: 'btn btn-primary' %>
+<%= link_to t('but_new_ani'), new_animal_path, class: 'btn btn-primary mb-2' %>
 <% end %>
 <% end %>

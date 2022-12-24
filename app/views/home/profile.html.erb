@@ -13,7 +13,7 @@
 <p>
 <%= button_to t('but_edit'), "/users/#{current_user.id}/edit", class: "btn btn-outline-primary", method: :get %>
 </p>
-<%= button_to t('but_orders'), "/orders/index",class: "btn btn-primary", method: :get %>
+<%= link_to t('but_orders'), "/orders/index",class: "btn btn-primary", method: :get, id: "Orders" %>
 
 <p>
 <% if current_user.admin? %>

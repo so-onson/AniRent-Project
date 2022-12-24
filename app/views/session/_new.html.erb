@@ -38,7 +38,7 @@
         </div>
         <div class="modal-footer">
 
-            <%= form.submit "#{t('session.enter')}", class: 'btn btn-primary' %>
+            <%= form.submit "#{t('session.enter')}",id: 'Login1', class: 'btn btn-primary' %>
       <% end %>
           <%= link_to "#{t('users.reg')}", new_user_path, data: {controller: "user-modal"}, method: :get, class: 'btn btn-primary'%>
         </div>

@@ -1,5 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject {
+    User.create(id:1, first_name: 'Test_u', email: 'Test_u@mail.ru', role: 'custom', password: '123456')
+
+    Customer.new( user_id: 1)
+  }
+
+  it "be valid" do
+    expect(subject).to be_valid
+  end
+
+  it "not be valid" do
+    subject.user_id = nil
+    expect(subject).to_not be_valid
+  end
 end

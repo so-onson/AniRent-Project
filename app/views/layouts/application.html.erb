@@ -21,7 +21,8 @@
 
     <div class="navbar indigo ps-1", style="background-color: #b5e7fe">
           
-        <%= link_to 'AniRent', root_path %>
+        <%= link_to image_tag('no_avatar2.jpeg', size: "40x40"), root_path %>
+
 
   <%# <button type="button" class="btn btn-primary">Left</button>
   <button type="button" class="btn btn-primary">Middle</button>
@@ -46,15 +47,16 @@
 
         
         <% if current_user.present? %>
-        <%= link_to "#{current_user.first_name}", home_profile_path, class: ' ms-1' %>
+        
+        <%= link_to "#{current_user.first_name}", home_profile_path, class: ' ms-1', class: 'btn btn-outline-light' %>
 
 
         <%= button_to "#{t('orders.index.orders')}", orders_index_path, class: 'btn btn-primary ms-1', method: :get%> 
 
         <%= button_to "#{t('but_exit')}", session_logout_path,class: 'btn btn-outline-primary ms-1', method: :get%>
         <% else %>
-        <%= link_to "#{t('users.reg')}", new_user_path, data: {controller: "user-modal"}, class: 'btn btn-primary' %>
-        <%= link_to "#{t('session.enter')}", session_login_path, data: {controller: "user-modal"}, class: ' btn btn-outline-primary'%>
+        <%= link_to "#{t('users.reg')}", new_user_path, id: 'Signup', data: {controller: "user-modal"}, class: 'btn btn-primary' %>
+        <%= link_to "#{t('session.enter')}", session_login_path, id: 'Login', data: {controller: "user-modal"}, class: ' btn btn-outline-primary'%>
         <% end %>
     </div>
 
